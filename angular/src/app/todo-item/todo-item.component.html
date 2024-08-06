@@ -1,0 +1,29 @@
+<!-- todo-item.component.html -->
+
+<div class="todo-item">
+    <input
+      type="checkbox"
+      [checked]="task.completed"
+      (change)="toggleCompleted.emit(task.id)"
+    />
+    <ng-container *ngIf="isEditing">
+      <input
+        type="text"
+        [(ngModel)]="editText"
+        (keydown.enter)="saveEdit()"
+      />
+      <button (click)="saveEdit()">Save</button>
+      <button (click)="cancelEdit()">Cancel</button>
+    </ng-container>
+    <ng-container *ngIf="!isEditing">
+      <span
+        [style.textDecoration]="task.completed ? 'line-through' : 'none'"
+        (click)="toggleCompleted.emit(task.id)"
+      >
+        {{ task.text }}
+      </span>
+      <button (click)="toggleEdit()">Edit</button>
+      <button (click)="delete.emit(task.id)">Delete</button>
+    </ng-container>
+  </div>
+  

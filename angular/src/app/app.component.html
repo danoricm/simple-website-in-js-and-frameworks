@@ -1,0 +1,52 @@
+<!-- app.component.html -->
+
+<main>
+  <div class="header">
+    <h1>{{ title }}</h1>
+  </div>
+
+  <div class="todo-container">
+    <app-todo-list></app-todo-list>
+  </div>
+</main>
+
+<style>
+  :host {
+    --bright-blue: oklch(51.01% 0.274 263.83);
+    --gray-900: oklch(19.37% 0.006 300.98);
+    --gray-700: oklch(36.98% 0.014 302.71);
+    font-family: "Inter", sans-serif;
+    box-sizing: border-box;
+  }
+
+  main {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background-color: var(--bright-blue);
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  h1 {
+    font-size: 3rem;
+    color: var(--gray-900);
+  }
+
+  .todo-container {
+    width: 100%;
+    max-width: 600px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+  }
+</style>
+

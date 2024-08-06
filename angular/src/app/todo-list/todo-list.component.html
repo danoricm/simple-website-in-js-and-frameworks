@@ -1,0 +1,19 @@
+<!-- todo-list.component.html -->
+
+<div class="todo-list">
+    <ul>
+      <li *ngFor="let task of tasks">
+        <app-todo-item
+          [task]="task"
+          (delete)="deleteTask($event)"
+          (toggleCompleted)="toggleCompleted($event)"
+          (updateText)="updateTaskText($event.id, $event.text)"
+        ></app-todo-item>
+      </li>
+    </ul>
+    <input
+      [(ngModel)]="newTaskText"
+      placeholder="Add a new task..."
+    />
+    <button (click)="addTask()">Add</button>
+  </div>  
